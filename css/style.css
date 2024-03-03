@@ -258,10 +258,7 @@ button:focus {
       display: none; }
   .header_area.white_menu.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link {
     line-height: 70px;
-    color: #222222; }
-  .navbar-brand {    
-    transform: scale(0.2); /* Reduce size by 80% (100% - 20% = 80%) */
-  }
+    color: #222222; }  
 
 .top_menu {
   background: #ec9d5f; }
