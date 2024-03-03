@@ -259,6 +259,13 @@ button:focus {
   .header_area.white_menu.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link {
     line-height: 70px;
     color: #222222; }
+  .navbar-brand {
+    position: absolute; /* This removes the logo from the normal document flow */
+    top: 20px;
+    left: 20px;
+    margin: 0; /* Reset default margins to avoid unexpected spacing */
+    transform: scale(0.2); /* Reduce size by 80% (100% - 20% = 80%) */
+  }
 
 .top_menu {
   background: #ec9d5f; }
