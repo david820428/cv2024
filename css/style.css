@@ -2792,6 +2792,8 @@ h6 {
   }
 
 .feature_item {  
+  display: flex;
+  width: fit-content;
   text-align: justify;
   padding: 50px 35px;
   border-radius: 10px;
