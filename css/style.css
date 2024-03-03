@@ -2785,10 +2785,15 @@ h6 {
         background: #fff; }
 
 .feature_inner {
-  margin-bottom: -30px; 
+  margin-bottom: -30px;
+  display: flex;
+  width: fit-content;
+  margin: 0 auto; 
   }
 
 .feature_item {
+  flex:1;
+  text-align: justify;
   padding: 50px 35px;
   border-radius: 10px;
   transition: all 300ms linear 0s;
