@@ -2786,8 +2786,7 @@ h6 {
 
 .feature_inner {
   margin-bottom: -30px; 
-  display: flex;
-  justify-content: space-between;}
+  }
 
 .feature_item {
   padding: 50px 35px;
