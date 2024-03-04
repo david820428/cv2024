@@ -103,12 +103,12 @@ button:focus {
   background: #fff !important; }
 
 .paragraph-style{
-  padding-left: 5em; /* Adjust the value for desired indentation */
+  padding-left: 2em; /* Adjust the value for desired indentation */
   text-indent: -2em;
 }
 
 .paragraph-style-indented{
-  padding-left: 5em; /* Adjust the value for desired indentation */
+  padding-left: 2em; /* Adjust the value for desired indentation */
   text-indent: -1em;
 }
 
