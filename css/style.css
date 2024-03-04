@@ -2785,16 +2785,10 @@ h6 {
         background: #fff; }
 
 .feature_inner {
-  margin-bottom: -30px;
-  display: flex;
-  width: fit-content;
-  margin: 0 auto; 
+  margin-bottom: -30px;  
   }
 
-.feature_item {  
-  display: flex;
-  width: fit-content;
-  text-align: justify;
+.feature_item { 
   padding: 50px 35px;
   border-radius: 10px;
   transition: all 300ms linear 0s;
