@@ -102,6 +102,17 @@ button:focus {
 .white_bg {
   background: #fff !important; }
 
+.paragraph-style{
+  padding-left: 2em; /* Adjust the value for desired indentation */
+  text-indent: -2em;
+}
+
+.paragraph-style-indented{
+  padding-left: 2em; /* Adjust the value for desired indentation */
+  text-indent: -1em;
+}
+
+
 /* Main Title Area css
 ============================================================================================ */
 .main_title {
