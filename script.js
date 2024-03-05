@@ -27,8 +27,11 @@ getWeatherBtn.addEventListener('click', async () => {
   weatherImage.id = 'weather-icon'; // Set the id to match the HTML element
   weatherImage.src = imageURL; // Set the image source to the retrieved URL
   weatherImage.alt = weatherDescription; // Set the alt text for accessibility
+
+  document.getElementById('weather-icon').src = imageURL;
+  document.getElementById('weather-icon').style.display = 'inline'; // Make the image visible
   
   
   weatherInfo.textContent = `The weather in ${city} is currently ${weatherDescription} with a temperature of ${temp}°C`;
-  weatherInfo.appendChild(weatherImage); // Add the image to the weather information section
+  //weatherInfo.appendChild(weatherImage); // Add the image to the weather information section
 });
