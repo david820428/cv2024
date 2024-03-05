@@ -23,7 +23,11 @@ getWeatherBtn.addEventListener('click', async () => {
   let weatherDescription = weatherData.weather[0].description;
   let icon = weatherData.weather[0].icon;
   let imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+  const weatherImage = document.createElement('img'); // Create an image element
+  weatherImage.src = imageURL; // Set the image source to the retrieved URL
+  weatherImage.alt = weatherDescription; // Set the alt text for accessibility
   
   
-  weatherInfo.textContent = `The weather in ${city} is currently ${weatherDescription} with a temperature of ${temp}°C` + imageURL;
+  weatherInfo.textContent = `The weather in ${city} is currently ${weatherDescription} with a temperature of ${temp}°C`;
+  weatherInfo.appendChild(weatherImage); // Add the image to the weather information section
 });
