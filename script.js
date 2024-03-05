@@ -30,6 +30,7 @@ getWeatherBtn.addEventListener('click', async () => {
 
   document.getElementById('weather-icon').src = imageURL;
   document.getElementById('weather-icon').style.display = 'inline'; // Make the image visible
+  document.getElementById('transparent').style.display = 'none'; // Make the image invisible
   
   
   weatherInfo.textContent = `The weather in ${city} is currently ${weatherDescription} with a temperature of ${temp}°C`;
