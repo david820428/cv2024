@@ -20,6 +20,10 @@ getWeatherBtn.addEventListener('click', async () => {
   
   const weather = weatherData.weather[0].main;
   const temp = Math.floor(weatherData.main.temp - 273.15); // Convert Kelvin to Celsius
+  let weatherDescription = weatherData.weather[0].description;
+  let icon = weatherData.weather[0].icon;
+  let imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
   
-  weatherInfo.textContent = `The weather in ${city} is currently ${weather} with a temperature of ${temp}°C`;
+  
+  weatherInfo.textContent = `The weather in ${city} is currently ${weatherDescription} with a temperature of ${temp}°C` + imageURL;
 });
