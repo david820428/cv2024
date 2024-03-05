@@ -24,6 +24,7 @@ getWeatherBtn.addEventListener('click', async () => {
   let icon = weatherData.weather[0].icon;
   let imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
   const weatherImage = document.createElement('img'); // Create an image element
+  weatherImage.id = 'weather-icon'; // Set the id to match the HTML element
   weatherImage.src = imageURL; // Set the image source to the retrieved URL
   weatherImage.alt = weatherDescription; // Set the alt text for accessibility
   
