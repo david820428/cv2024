@@ -2,10 +2,11 @@ const apiKey = '711f62e772f7f1b72652548fe2d39348'; // Replace with your actual A
 const cityInput = document.getElementById('city');
 const getWeatherBtn = document.getElementById('get-weather');
 const weatherInfo = document.getElementById('weather-info');
+let cityData
 
 fetch("json/citylist.json").then(async response => {
   try {
-   const cityData = await response.json();
+   cityData = await response.json();
    console.log('response data?', cityData);
    console.log(typeof cityData);
    const firstCity = cityData[0]; // Access the first city object in the array
@@ -15,10 +16,6 @@ fetch("json/citylist.json").then(async response => {
    console.error(error);
  }
 })
-
-
-
-
 
 
 getWeatherBtn.addEventListener('click', async () => {
