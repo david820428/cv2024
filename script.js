@@ -13,6 +13,9 @@ fetch("json/citylist.json").then(async response => {
  }
 })
 
+setTimeout(() => {
+  console.log("set timeout executed") 
+}, 0) 
 
 
 console.log(typeof cityData); // Should output "object" if it's an array
