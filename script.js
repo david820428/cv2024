@@ -5,6 +5,11 @@ const weatherInfo = document.getElementById('weather-info');
 const cityData =  JSON.parse('json/citylist.json');
 
 
+console.log(typeof cityData); // Should output "object" if it's an array
+const firstCity = cityData[0]; // Access the first city object in the array
+console.log(firstCity.name); // Print the name of the first city
+
+
 getWeatherBtn.addEventListener('click', async () => {
   const city = cityInput.value;
   if (!city) {
