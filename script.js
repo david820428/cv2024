@@ -2,7 +2,17 @@ const apiKey = '711f62e772f7f1b72652548fe2d39348'; // Replace with your actual A
 const cityInput = document.getElementById('city');
 const getWeatherBtn = document.getElementById('get-weather');
 const weatherInfo = document.getElementById('weather-info');
-const cityData =  JSON.parse('json/citylist.json');
+
+fetch("json/citylist.json").then(async response => {
+  try {
+   const cityData = await response.json()
+   console.log('response data?', data)
+ } catch(error) {
+   console.log('Error happened here!')
+   console.error(error)
+ }
+})
+
 
 
 console.log(typeof cityData); // Should output "object" if it's an array
