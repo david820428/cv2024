@@ -66,7 +66,7 @@ cityInput.addEventListener('keyup', function() {
   // Create and display suggestions
   filteredCities.forEach(city => {
     const suggestionItem = document.createElement('li');
-    suggestionItem.textContent = city.name;
+    suggestionItem.textContent = `${city.name}, ${city.country}`; // Combine city name and country
     suggestionItem.addEventListener('click', () => {
       cityInput.value = city.name; // Update input field with selected city
       suggestionsList.innerHTML = ''; // Clear suggestions after selection
