@@ -2,6 +2,7 @@ const apiKey = '711f62e772f7f1b72652548fe2d39348'; // Replace with your actual A
 const cityInput = document.getElementById('city');
 const getWeatherBtn = document.getElementById('get-weather');
 const weatherInfo = document.getElementById('weather-info');
+const cityData = JSON.parse("json/city.list.json");
 
 getWeatherBtn.addEventListener('click', async () => {
   const city = cityInput.value;
@@ -34,4 +35,28 @@ getWeatherBtn.addEventListener('click', async () => {
   
   weatherInfo.textContent = `The weather in ${city} is currently ${weatherDescription} with a temperature of ${temp}°C`;
   //weatherInfo.appendChild(weatherImage); // Add the image to the weather information section
+});
+
+cityInput.addEventListener('keyup', function() {
+  const searchTerm = this.value.toLowerCase(); // Convert input to lowercase for case-insensitive matching
+  const filteredCities = cityData.filter(city => city.name.toLowerCase().startsWith(searchTerm));
+
+  // Clear previous suggestions and handle no matches
+  const suggestionsList = document.getElementById('city-suggestions');
+  suggestionsList.innerHTML = ''; // Clear existing suggestions
+  if (!filteredCities.length) {
+    suggestionsList.textContent = 'No suggestions found.';
+    return;
+  }
+
+  // Create and display suggestions
+  filteredCities.forEach(city => {
+    const suggestionItem = document.createElement('li');
+    suggestionItem.textContent = city.name;
+    suggestionItem.addEventListener('click', () => {
+      cityInput.value = city.name; // Update input field with selected city
+      suggestionsList.innerHTML = ''; // Clear suggestions after selection
+    });
+    suggestionsList.appendChild(suggestionItem);
+  });
 });
