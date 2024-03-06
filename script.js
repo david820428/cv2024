@@ -2,8 +2,8 @@ const apiKey = '711f62e772f7f1b72652548fe2d39348'; // Replace with your actual A
 const cityInput = document.getElementById('city');
 const getWeatherBtn = document.getElementById('get-weather');
 const weatherInfo = document.getElementById('weather-info');
-var cityData =  JSON.stringify('json/citylist.json');
-var cityData =  JSON.parse(cityData); 
+const cityData =  JSON.parse('json/citylist.json');
+
 
 getWeatherBtn.addEventListener('click', async () => {
   const city = cityInput.value;
