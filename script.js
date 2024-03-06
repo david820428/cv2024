@@ -13,14 +13,13 @@ fetch("json/citylist.json").then(async response => {
  }
 })
 
-setTimeout(() => {
-  console.log("set timeout executed") 
-}, 0) 
+const myTimeout = setTimeout(parse_conduct, 500);
 
-
-console.log(typeof cityData); // Should output "object" if it's an array
-const firstCity = cityData[0]; // Access the first city object in the array
-console.log(firstCity.name); // Print the name of the first city
+function parse_conduct() {
+  console.log(typeof cityData); // Should output "object" if it's an array
+  const firstCity = cityData[0]; // Access the first city object in the array
+  console.log(firstCity.name); // Print the name of the first city
+}
 
 
 getWeatherBtn.addEventListener('click', async () => {
