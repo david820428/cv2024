@@ -6,7 +6,7 @@ const weatherInfo = document.getElementById('weather-info');
 fetch("json/citylist.json").then(async response => {
   try {
    const cityData = await response.json()
-   console.log('response data?', data)
+   console.log('response data?', cityData)
  } catch(error) {
    console.log('Error happened here!')
    console.error(error)
