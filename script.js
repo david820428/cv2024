@@ -55,6 +55,8 @@ cityInput.addEventListener('keyup', function() {
   const searchTerm = this.value.toLowerCase(); // Convert input to lowercase for case-insensitive matching
   const filteredCities = cityData.filter(city => city.name.toLowerCase().startsWith(searchTerm));
 
+   
+
   // Clear previous suggestions and handle no matches
   const suggestionsList = document.getElementById('city-suggestions');
   suggestionsList.innerHTML = ''; // Clear existing suggestions
@@ -63,12 +65,15 @@ cityInput.addEventListener('keyup', function() {
     return;
   }
 
+  // Limit and handle no matches
+  const top10Cities = filteredCities.slice(0, 10); // Take the top 10 elements
+
   // Create and display suggestions
-  filteredCities.forEach(city => {
+  top10Cities.forEach(city => {
     const suggestionItem = document.createElement('li');
     suggestionItem.textContent = `${city.name}, ${city.country}`; // Combine city name and country
     suggestionItem.addEventListener('click', () => {
-      cityInput.value = city.name; // Update input field with selected city
+      cityInput.value = `${city.name}, ${city.country}`; // Update input field with selected city
       suggestionsList.innerHTML = ''; // Clear suggestions after selection
     });
     suggestionsList.appendChild(suggestionItem);
