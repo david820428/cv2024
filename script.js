@@ -8,19 +8,17 @@ fetch("json/citylist.json").then(async response => {
    const cityData = await response.json();
    console.log('response data?', cityData);
    console.log(typeof cityData);
+   const firstCity = cityData[0]; // Access the first city object in the array
+   console.log(firstCity.name); // Print the name of the first city
  } catch(error) {
    console.log('Error happened here!');
    console.error(error);
  }
 })
 
-const myTimeout = setTimeout(parse_conduct, 500);
 
-function parse_conduct() {
-  console.log(typeof cityData); // Should output "object" if it's an array
-  const firstCity = cityData[0]; // Access the first city object in the array
-  console.log(firstCity.name); // Print the name of the first city
-}
+
+
 
 
 getWeatherBtn.addEventListener('click', async () => {
