@@ -143,6 +143,19 @@ button:hover {
   color: #333; /* Dark gray text */
 }
 
+#weather-icon {
+  position: absolute; /* Position the icon absolutely within the container */
+  top: 50%; /* Center the icon vertically */
+  left: 50%; /* Center the icon horizontally */  
+  z-index: 2; /* Set higher z-index to display on top of the background */
+}
+
+#transparent {
+  width: 100%; /* Set width to cover the container */
+  height: 100%; /* Set height to cover the container */
+  z-index: 1; /* Set lower z-index to display behind the icon */
+}
+
 /* Main Title Area css
 ============================================================================================ */
 .main_title {
@@ -338,6 +351,10 @@ button:hover {
     width: 100%; }
     .home_banner_area .banner_inner .home_left_img {
       padding-top: 195px; }
+    .home_banner_area .banner_inner .weather_icon_area {
+      position: relative; /* Enable relative positioning for child elements */
+      width: fit-content; /* Adjust width as needed */
+      height: fit-content; /* Adjust height as needed */ }
     .home_banner_area .banner_inner .col-lg-6 {
       vertical-align: middle;
       align-self: center; }
