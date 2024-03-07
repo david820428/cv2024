@@ -21,8 +21,19 @@ form.addEventListener("submit", function(event) {
   form.reset();
 });
 
+// Function to save data to a JSON file in the "/json" folder
 function saveData(data) {
-  // Replace this with your actual logic to save data to a JSON file
-  // This example just shows a basic structure for demonstration
-  console.log("Saving data:", data);
+  try {
+    const fs = require('fs'); // Import the Node.js file system module
+    const directoryPath = './json'; // Path to the directory where you want to save the file
+    const fileName = 'account.json'; // Name of the file
+
+    // Write the data to the JSON file
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2)); // Indent for readability
+
+    console.log('Data saved successfully to:', filePath);
+  } catch (error) {
+    console.error('Error saving data:', error);
+    // Handle any errors appropriately, e.g., send error notifications
+  }
 }
