@@ -1,1 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price</title>
+</head>
+<body>
+    <h1>Stock Price for 2330.TW</h1>
+    <p>Current Price: <span id="stockPrice">Loading...</span></p>
 
+    <script src="script.js"></script>
+</body>
+</html>
