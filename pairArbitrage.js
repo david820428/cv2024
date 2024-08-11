@@ -1,14 +1,20 @@
 window.onload = function() {
-    const apiUrl = "https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_2330.tw";
+    console.log("Page loaded, starting to fetch stock data...");
+
+    const apiUrl = "https://cors-anywhere.herokuapp.com/http://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_2330.tw";
+    
+    console.log("API URL set to:", apiUrl);
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            const stockInfo = data.msgArray[0].pz; // Extracting the "pz" value
-            document.getElementById("stockPrice").textContent = stockInfo; // Displaying the "pz" value
+            console.log("API response data received:", data);
+            const stockInfo = data.msgArray[0].pz; 
+            console.log("Extracted stock price (pz):", stockInfo);
+            document.getElementById("stockPrice").textContent = stockInfo;
         })
         .catch(error => {
-            console.error('Error fetching the stock data:', error);
+            console.error('Error occurred during fetch:', error);
             document.getElementById("stockPrice").textContent = "Error loading data";
         });
 };
