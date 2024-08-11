@@ -1,5 +1,5 @@
 window.onload = function() {
-    const apiUrl = "http://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_2330.tw";
+    const apiUrl = "https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_2330.tw";
 
     fetch(apiUrl)
         .then(response => response.json())
