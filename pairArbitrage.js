@@ -38,9 +38,22 @@ document.addEventListener("DOMContentLoaded", function() {
         // Calculate the width of the bar as a percentage of the range between min and max
         const width = ((margin - min) / (max - min)) * 100;
 
+        // Calculate the percentage distance from the minimum and maximum
+        const minProximity = ((margin - min) / (max - min)) * 100;
+        const maxProximity = 100 - minProximity;
+
+        // Determine the color based on proximity to min or max
+        let color = "green"; // Default color
+
+        if (minProximity <= 10 || maxProximity <= 10) {
+            color = "red"; // Close to min or max
+        } else if (minProximity <= 20 || maxProximity <= 20) {
+            color = "yellow"; // Near to min or max
+        }
+
         // Set the style for the bar
         bar.style.width = `${width}%`;
         bar.style.height = "20px"; // Adjust the height as needed
-        bar.style.backgroundColor = "green"; // Color for the bar
+        bar.style.backgroundColor = color; // Set the determined color
     });
 });
