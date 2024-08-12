@@ -25,3 +25,22 @@ window.onload = function() {
             });
         });
 };
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const bars = document.querySelectorAll(".bar");
+
+    bars.forEach(bar => {
+        const margin = parseFloat(bar.dataset.margin);
+        const min = parseFloat(bar.dataset.min);
+        const max = parseFloat(bar.dataset.max);
+
+        // Calculate the width of the bar as a percentage of the range between min and max
+        const width = ((margin - min) / (max - min)) * 100;
+
+        // Set the style for the bar
+        bar.style.width = `${width}%`;
+        bar.style.height = "20px"; // Adjust the height as needed
+        bar.style.backgroundColor = "green"; // Color for the bar
+    });
+});
