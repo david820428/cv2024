@@ -28,12 +28,19 @@ window.onload = function() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    const bars = document.querySelectorAll(".bar");
+    const rows = document.querySelectorAll("tbody tr");
 
-    bars.forEach(bar => {
-        const margin = parseFloat(bar.dataset.margin);
-        const min = parseFloat(bar.dataset.min);
-        const max = parseFloat(bar.dataset.max);
+    rows.forEach(row => {
+        const stock1Price = parseFloat(row.querySelector('td:nth-child(3)').dataset.price);
+        const stock2Price = parseFloat(row.querySelector('td:nth-child(4)').dataset.price);
+        const margin = Math.abs(stock1Price - stock2Price);
+        const min = parseFloat(row.querySelector('td:nth-child(6)').dataset.min);
+        const max = parseFloat(row.querySelector('td:nth-child(7)').dataset.max);
+        const bar = row.querySelector('.bar');
+        const marginCell = row.querySelector('.current-margin');
+
+        // Set the margin value in the margin cell
+        marginCell.textContent = margin.toFixed(2);
 
         // Calculate the width of the bar as a percentage of the range between min and max
         const width = ((margin - min) / (max - min)) * 100;
