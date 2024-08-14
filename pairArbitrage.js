@@ -12,11 +12,13 @@ window.onload = function() {
 
             const stockSymbols = ["1229.tw", "2355.tw", "1605.tw", "3059.tw", "6202.tw", "2376.tw", "2034.tw", "2002.tw", "1210.tw", "1307.tw", "2441.tw", "2387.tw", "2103.tw", "3532.tw", "8341.tw", "6770.tw", "2421.tw", "2498.tw", "9930.tw"];
             
+            let stockPrices = [];
+
             stockSymbols.forEach((symbol, index) => {
-                const stockPrice_raw = data.msgArray.find(stock => stock.ch === symbol) ;
-                console.log(stockPrice_raw);
+                const stockPrice_raw = data.msgArray.find(stock => stock.ch === symbol) ;                
                 console.log(stockPrice_raw.a.split('_')[0]);                
                 const stockPrice = ((parseFloat(stockPrice_raw.a.split('_')[0]) + parseFloat(stockPrice_raw.b.split('_')[0]))/2).toFixed(2) || "N/A";
+                stockPrices[index] = stockPrice;
                 console.log(`Extracted stock price for ${symbol}:`, stockPrice);
                 document.getElementById(`stockPrice${index + 1}`).textContent = stockPrice;
             });
@@ -35,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     rows.forEach(row => {
         const stock1Price = parseFloat(row.querySelector('td:nth-child(3)').dataset.price);
+        console.log(stock1Price);
         const stock2Price = parseFloat(row.querySelector('td:nth-child(4)').dataset.price);
         const margin = Math.abs(stock1Price - stock2Price);
         const min = parseFloat(row.querySelector('td:nth-child(6)').dataset.min);
