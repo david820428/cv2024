@@ -14,6 +14,8 @@ window.onload = function() {
             
             stockSymbols.forEach((symbol, index) => {
                 const stockPrice_raw = data.msgArray.find(stock => stock.ch === symbol) ;
+                console.log(stockPrice_raw)
+                console.log(stockPrice_raw.a.split('_')[0])                   
                 const stockPrice = (stockPrice_raw.a.split('_')[0] + stockPrice_raw.b.split('_')[0])/2 || "N/A";
                 console.log(`Extracted stock price for ${symbol}:`, stockPrice);
                 document.getElementById(`stockPrice${index + 1}`).textContent = stockPrice;
