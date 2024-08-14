@@ -15,8 +15,7 @@ window.onload = function() {
             let stockPrices = [];
 
             stockSymbols.forEach((symbol, index) => {
-                const stockPrice_raw = data.msgArray.find(stock => stock.ch === symbol) ;                
-                console.log(stockPrice_raw.a.split('_')[0]);                
+                const stockPrice_raw = data.msgArray.find(stock => stock.ch === symbol) ;            
                 const stockPrice = ((parseFloat(stockPrice_raw.a.split('_')[0]) + parseFloat(stockPrice_raw.b.split('_')[0]))/2).toFixed(2) || "N/A";
                 stockPrices[index] = stockPrice;
                 console.log(`Extracted stock price for ${symbol}:`, stockPrice);
@@ -34,10 +33,10 @@ window.onload = function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const rows = document.querySelectorAll("tbody tr");
+    console.log(rows)
 
     rows.forEach(row => {
-        const stock1Price = parseFloat(row.querySelector('td:nth-child(3)').dataset.price);
-        console.log(stock1Price);
+        const stock1Price = parseFloat(row.querySelector('td:nth-child(3)').dataset.price);        
         const stock2Price = parseFloat(row.querySelector('td:nth-child(4)').dataset.price);
         const margin = Math.abs(stock1Price - stock2Price);
         const min = parseFloat(row.querySelector('td:nth-child(6)').dataset.min);
