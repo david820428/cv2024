@@ -1,3 +1,15 @@
+function getCurrentTimestamp() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
 window.onload = function() {
     console.log("Page loaded, starting to fetch stock data...");
 
@@ -21,31 +33,75 @@ window.onload = function() {
                 console.log(`Extracted stock price for ${symbol}:`, stockPrice);
                 document.getElementById(`stockPrice${index + 1}`).textContent = stockPrice;
             });
+
+
+            document.getElementById(`stock1a-price`).textContent = stockPrices[0];
+            document.getElementById(`stock2a-price`).textContent = stockPrices[10];
+            const marginA = (0.5823*stockPrices[0]+22.1117-stockPrices[10]).toFixed(2);
+            document.getElementById(`stock1a-stock2a-margin`).textContent = marginA;
+            const minA = parseFloat(document.getElementById('stock1a-stock2a-min').dataset.min);
+            const maxA = parseFloat(document.getElementById('stock1a-stock2a-max').dataset.max);
+    
+            const widthA = ((marginA - minA) / (maxA - minA)) * 100;
+            const minProximityA = ((marginA - minA) / (maxA - minA)) * 100;
+            const maxProximityA = 100 - minProximityA;
+            let colorA = "green";
+    
+            if (minProximityA <= 10 || maxProximityA <= 10) {
+                colorA = "red";
+            } else if (minProximityA <= 20 || maxProximityA <= 20) {
+                colorA = "yellow";
+            }            
+            document.getElementById('stock1a-stock2a-bar').style.width = `${widthA}%`;            
+            document.getElementById('stock1a-stock2a-bar').style.height = "20px";
+            document.getElementById('stock1a-stock2a-bar').style.backgroundColor = colorA;
+            document.getElementById('timestamp').textContent = getCurrentTimestamp();
+
+
+
+            document.getElementById(`stock1b-price`).textContent = stockPrices[1];
+            document.getElementById(`stock2b-price`).textContent = stockPrices[11];
+            const marginB = (0.9569*stockPrices[1]+11.2938-stockPrices[11]).toFixed(2);
+            document.getElementById(`stock1b-stock2b-margin`).textContent = marginB;
+            const minB = parseFloat(document.getElementById('stock1b-stock2b-min').dataset.min);
+            const maxB = parseFloat(document.getElementById('stock1b-stock2b-max').dataset.max);
+    
+            const widthB = ((marginB - minB) / (maxB - minB)) * 100;
+            const minProximityB = ((marginB - minB) / (maxB - minB)) * 100;
+            const maxProximityB = 100 - minProximityB;
+            let colorB = "green";
+    
+            if (minProximityB <= 10 || maxProximityB <= 10) {
+                colorB = "red";
+            } else if (minProximityB <= 20 || maxProximityB <= 20) {
+                colorB = "yellow";
+            }            
+            document.getElementById('stock1b-stock2b-bar').style.width = `${widthB}%`;            
+            document.getElementById('stock1b-stock2b-bar').style.height = "20px";
+            document.getElementById('stock1b-stock2b-bar').style.backgroundColor = colorB;
+            
+            
+
         })
         .catch(error => {
             console.error('Error occurred during fetch:', error);
             stockSymbols.forEach((_, index) => {
                 document.getElementById(`stockPrice${index + 1}`).textContent = "Error loading data";
             });
-        });
+        });  
+
 };
 
 
 document.addEventListener("DOMContentLoaded", function() {
     const rows = document.querySelectorAll("tbody tr");
-    console.log(rows)
+    
 
-    rows.forEach(row => {
-        const stock1Price = parseFloat(row.querySelector('td:nth-child(3)').dataset.price);        
-        const stock2Price = parseFloat(row.querySelector('td:nth-child(4)').dataset.price);
-        const margin = Math.abs(stock1Price - stock2Price);
-        const min = parseFloat(row.querySelector('td:nth-child(6)').dataset.min);
-        const max = parseFloat(row.querySelector('td:nth-child(7)').dataset.max);
-        const bar = row.querySelector('.bar');
-        const marginCell = row.querySelector('.current-margin');
-
-        // Set the margin value in the margin cell
-        marginCell.textContent = margin.toFixed(2);
+    rows.forEach(row => {       
+        const min = parseFloat(row.getElementById('stock1a-stock2a-min').dataset.min);
+        const max = parseFloat(row.getElementById('stock1a-stock2a-max').dataset.max);
+        const bar = row.getElementById('stock1a-stock2a-bar');        
+        console.log(min)
 
         // Calculate the width of the bar as a percentage of the range between min and max
         const width = ((margin - min) / (max - min)) * 100;
