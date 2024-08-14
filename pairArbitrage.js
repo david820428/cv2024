@@ -16,7 +16,7 @@ window.onload = function() {
                 const stockPrice_raw = data.msgArray.find(stock => stock.ch === symbol) ;
                 console.log(stockPrice_raw);
                 console.log(stockPrice_raw.a.split('_')[0]);                
-                const stockPrice = (parseFloat(stockPrice_raw.a.split('_')[0]) + parseFloat(stockPrice_raw.b.split('_')[0]))/2 || "N/A";
+                const stockPrice = ((parseFloat(stockPrice_raw.a.split('_')[0]) + parseFloat(stockPrice_raw.b.split('_')[0]))/2).toFixed(2) || "N/A";
                 console.log(`Extracted stock price for ${symbol}:`, stockPrice);
                 document.getElementById(`stockPrice${index + 1}`).textContent = stockPrice;
             });
