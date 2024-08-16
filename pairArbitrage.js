@@ -22,7 +22,7 @@ window.onload = function() {
         .then(data => {
             console.log("API response data received:", data);
 
-            const stockSymbols = ["1229.tw", "2355.tw", "1605.tw", "3059.tw", "6202.tw", "2376.tw", "2034.tw", "2002.tw", "1210.tw", "1307.tw", "2441.tw", "2387.tw", "2103.tw", "3532.tw", "8341.tw", "6770.tw", "2421.tw", "2498.tw", "9930.tw"];
+            const stockSymbols = ["1229.tw", "2355.tw", "1605.tw", "3059.tw", "6202.tw", "2376.tw", "2034.tw", "2002.tw", "1210.tw", "1307.tw", "2441.tw", "2387.tw", "2103.tw", "3532.tw", "8341.tw", "6770.tw", "2421.tw", "2498.tw", "9930.tw", "1710.tw", "8478.tw"];
             
             let stockPrices = [];
 
@@ -235,9 +235,9 @@ window.onload = function() {
 
 
             // Group J
-            document.getElementById(`stock1j-price`).textContent = stockPrices[8];
-            document.getElementById(`stock2j-price`).textContent = stockPrices[10];
-            const marginJ = (0.8536 * stockPrices[8] + 11.3958 - stockPrices[10]).toFixed(2);
+            document.getElementById(`stock1j-price`).textContent = stockPrices[19];
+            document.getElementById(`stock2j-price`).textContent = stockPrices[20];
+            const marginJ = (63.7512 * stockPrices[19] - 849.1835 - stockPrices[20]).toFixed(2);
             document.getElementById(`stock1j-stock2j-margin`).textContent = marginJ;
             const minJ = parseFloat(document.getElementById('stock1j-stock2j-min').dataset.min);
             const maxJ = parseFloat(document.getElementById('stock1j-stock2j-max').dataset.max);
