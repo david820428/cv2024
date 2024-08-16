@@ -13,7 +13,7 @@ function getCurrentTimestamp() {
 window.onload = function() {
     console.log("Page loaded, starting to fetch stock data...");
 
-    const apiUrl = "https://cors-anywhere.herokuapp.com/https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_1229.tw|tse_2355.tw|tse_1605.tw|tse_3059.tw|tse_6202.tw|tse_2376.tw|tse_2034.tw|tse_2002.tw|tse_1210.tw|tse_1307.tw|tse_2441.tw|tse_2387.tw|tse_2103.tw|tse_3532.tw|tse_8341.tw|tse_6770.tw|tse_2421.tw|tse_2498.tw|tse_9930.tw";
+    const apiUrl = "https://cors-anywhere.herokuapp.com/https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_1229.tw|tse_2355.tw|tse_1605.tw|tse_3059.tw|tse_6202.tw|tse_2376.tw|tse_2034.tw|tse_2002.tw|tse_1210.tw|tse_1307.tw|tse_2441.tw|tse_2387.tw|tse_2103.tw|tse_3532.tw|tse_8341.tw|tse_6770.tw|tse_2421.tw|tse_2498.tw|tse_9930.tw|tse_1710.tw|tse_8478.tw";
     
     console.log("API URL set to:", apiUrl);
 
